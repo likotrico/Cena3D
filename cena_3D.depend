@@ -256,3 +256,20 @@
 1426346128 c:\program files (x86)\codeblocks\mingw\include\gl\freeglut_ext.h
 	<stdarg.h>
 
+1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\input.c
+	<stdio.h>
+	<windows.h>
+	<GL/freeglut.h>
+
+1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\main.c
+	<windows.h>
+	<stdio.h>
+	<GL/glut.h>
+	"input.h"
+
+1709476955 c:\users\user\desktop\cena3d_projeto\cena3d\input.h
+
+1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\object.c
+
+1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\render.c
+

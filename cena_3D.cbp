@@ -42,7 +42,21 @@
 			<Add library="gdi32" />
 			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
 		</Linker>
-		<Unit filename="main.cpp" />
+		<Unit filename="input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="input.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="object.h" />
+		<Unit filename="render.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="render.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

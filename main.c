@@ -3,6 +3,7 @@
 #include <GL/glut.h>
 
 #include "input.h"
+#include "render.h"
 
 int init(){
     glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -14,7 +15,7 @@ int init(){
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(0.8, 0.5, 0.5,
+    gluLookAt(0.0, 0.5, 0.5,
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
@@ -27,11 +28,12 @@ void display(){
 
     glMatrixMode(GL_MODELVIEW);
 
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glutWireCube(1.0f);
+    Teapot *t = createTeapot(0, 0, 0, 1);
+    renderTeapot(t);
 
     //NÃO É PRA USAR GLFLUSH
     glFlush();
+    //glutSwapBuffers();
 
 }
 

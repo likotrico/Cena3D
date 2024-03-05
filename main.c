@@ -1,11 +1,14 @@
 #include <windows.h>
+#include <GL/freeglut.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <GL/glut.h>
+#include <math.h>
 
 #include "input.h"
 #include "render.h"
 
-int init(){
+int init()
+{
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glEnable(GL_DEPTH_TEST);
 
@@ -19,10 +22,10 @@ int init(){
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
-
 }
 
-void display(){
+void display()
+{
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -31,20 +34,21 @@ void display(){
     Teapot *t = createTeapot(0, 0, 0, 1);
     renderTeapot(t);
 
-    //NÃO É PRA USAR GLFLUSH
+    // Nï¿½O ï¿½ PRA USAR GLFLUSH
     glFlush();
     //glutSwapBuffers();
 
 }
 
-int main(int argc, char** argv){
+i
+int main(int argc, char **argv)
+{
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE| GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(200, 0);
     glutInitWindowSize(500, 500);
     glutCreateWindow("Cena 3D");
-
 
     init();
     glutDisplayFunc(display);
@@ -53,8 +57,6 @@ int main(int argc, char** argv){
     glutSpecialFunc(keyPressed_special);
 
     glutMainLoop();
-
-
 
     return 0;
 }

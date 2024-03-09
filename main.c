@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "input.h"
-
 int init()
 {
     glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -30,27 +28,23 @@ void display()
 
     glMatrixMode(GL_MODELVIEW);
 
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glutWireCube(1.0f);
-
-    // N�O � PRA USAR GLFLUSH
-    glFlush();
+    glutSwapBuffers();
 }
 
 int main(int argc, char **argv)
 {
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(200, 0);
-    glutInitWindowSize(500, 500);
+    glutInitWindowSize(720, 480);
     glutCreateWindow("Cena 3D");
 
     init();
     glutDisplayFunc(display);
 
-    glutKeyboardFunc(keyPressed);
-    glutSpecialFunc(keyPressed_special);
+    // glutKeyboardFunc(keyPressed);
+    // glutSpecialFunc(keyPressed_special);
 
     glutMainLoop();
 

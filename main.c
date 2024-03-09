@@ -15,7 +15,7 @@ int init(){
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(0.0, 0.5, 0.5,
+    gluLookAt(0.5, 0.5, 0.5,
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
@@ -28,8 +28,23 @@ void display(){
 
     glMatrixMode(GL_MODELVIEW);
 
-    Teapot *t = createTeapot(0, 0, 0, 1);
-    renderTeapot(t);
+    //Teapot *t = createTeapot(0, 0, 0, 1);
+    //renderTeapot(t);
+    //Sphere *s = createSphere(0, 0, 0, 0.5, 50, 50);
+    //renderSphere(s);
+    /*double inner = 0.2;
+    double outer = 0.7;
+    Torus *t1 = createTorus(0, 0, 0, inner, outer, 30, 50);
+    renderTorus(t1);*/
+    //Block *b = createBlock(0, 0, 0, 0.5, 1, 0.5);
+    //renderBlock(b);
+
+    //PONTOS PARA TESTAR HITBOX
+    /*glColor3f(0, 0, 0);
+    glPointSize(5);
+    glBegin(GL_POINTS);
+        glVertex3f(0, 0, 0);
+    glEnd();*/
 
     //NÃO É PRA USAR GLFLUSH
     glFlush();
@@ -53,8 +68,6 @@ int main(int argc, char** argv){
     glutSpecialFunc(keyPressed_special);
 
     glutMainLoop();
-
-
 
     return 0;
 }

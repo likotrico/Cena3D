@@ -12,9 +12,9 @@ Teapot *createTeapot(double x, double y, double z, double s){
     teapot->y = y;
     teapot->z = z;
     teapot->teapot_size = s;
-    teapot->hitbox_x = x + teapot_hitbox_x*teapot->teapot_size;
-    teapot->hitbox_y = y + teapot_hitbox_y*teapot->teapot_size;
-    teapot->hitbox_z = z + teapot_hitbox_z*teapot->teapot_size;
+    teapot->hitbox_x = 0 + teapot_hitbox_x*teapot->teapot_size;
+    teapot->hitbox_y = 0 + teapot_hitbox_y*teapot->teapot_size;
+    teapot->hitbox_z = 0 + teapot_hitbox_z*teapot->teapot_size;
 
     return teapot;
 }
@@ -38,9 +38,9 @@ Sphere *createSphere(double x, double y, double z, double radius, int slices, in
     sphere->slices = slices;
     sphere->stacks = stacks;
 
-    sphere->hitbox_x = x + sphere_hitbox_x*sphere->radius;
-    sphere->hitbox_y = y + sphere_hitbox_y*sphere->radius;
-    sphere->hitbox_z = z + sphere_hitbox_z*sphere->radius;
+    sphere->hitbox_x = sphere_hitbox_x*sphere->radius;
+    sphere->hitbox_y = sphere_hitbox_y*sphere->radius;
+    sphere->hitbox_z = sphere_hitbox_z*sphere->radius;
 
     return sphere;
 }
@@ -49,9 +49,9 @@ void moveSphere(Sphere *sphere, double newX, double newY, double newZ){
     sphere->x = newX;
     sphere->y = newY;
     sphere->z = newZ;
-    sphere->hitbox_x = newX + sphere_hitbox_x;
-    sphere->hitbox_y = newY + sphere_hitbox_y;
-    sphere->hitbox_z = newZ + sphere_hitbox_z;
+    //sphere->hitbox_x = newX + sphere_hitbox_x;
+    //sphere->hitbox_y = newY + sphere_hitbox_y;
+    //sphere->hitbox_z = newZ + sphere_hitbox_z;
 }
 
 Torus *createTorus(double x, double y, double z, double innerRadius, double outerRadius, int nsides, int rings){ //x, y, z, innerRadius, outerRadius, nsides, rings
@@ -65,9 +65,9 @@ Torus *createTorus(double x, double y, double z, double innerRadius, double oute
     torus->nsides = nsides;
     torus->rings = rings;
 
-    torus->hitbox_x = torus->x + torus->outerRadius + torus->innerRadius;
-    torus->hitbox_y = torus->y + torus->outerRadius + torus->innerRadius;
-    torus->hitbox_z = torus->z + torus->innerRadius;
+    torus->hitbox_x = torus->outerRadius + torus->innerRadius;
+    torus->hitbox_y = torus->outerRadius + torus->innerRadius;
+    torus->hitbox_z = torus->innerRadius;
 
     return torus;
 }

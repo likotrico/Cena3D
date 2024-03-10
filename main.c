@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#include "input.h"
+
 int init()
 {
     glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -43,8 +45,8 @@ int main(int argc, char **argv)
     init();
     glutDisplayFunc(display);
 
-    // glutKeyboardFunc(keyPressed);
-    // glutSpecialFunc(keyPressed_special);
+    glutKeyboardFunc(keyPressed);
+    glutSpecialFunc(skeyPressed);
 
     glutMainLoop();
 

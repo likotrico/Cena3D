@@ -23,7 +23,7 @@ void keyPressed(unsigned char key, int x, int y)
     }
 }
 
-void keyPressed_special(int key, int x, int y)
+void skeyPressed(int key, int x, int y)
 {
 
     if (key == GLUT_KEY_LEFT)

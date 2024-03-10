@@ -2,6 +2,6 @@
 #define INPUT_H
 
 void keyPressed(unsigned char, int, int);
-void keyPressed_special(int, int, int);
+void skeyPressed(int, int, int);
 
 #endif

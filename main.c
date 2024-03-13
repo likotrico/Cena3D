@@ -45,6 +45,8 @@ int main(int argc, char **argv)
     glutCreateWindow("Cena 3D");
 
     init();
+    initData();
+
     glutDisplayFunc(display);
 
     glutKeyboardFunc(keyPressed);

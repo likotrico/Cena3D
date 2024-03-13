@@ -52,7 +52,7 @@ void renderTeapot(Teapot *teapot)
 {
 
     glColor3f(0.0f, 0.0f, 1.0f); // TROCAR GLCOLOR
-    glutWireTeapot(teapot->teapot_size);
+    glutWireTeapot(teapot->size);
 
     // glTranslated(teapot->x, teapot->y, teapot->z);
 
@@ -158,7 +158,7 @@ void renderTorus(Torus *torus)
 {
 
     glColor3f(0.0f, 0.0f, 1.0f); // TROCAR GLCOLOR
-    glutWireTorus(torus->innerRadius, torus->outerRadius, torus->nsides, torus->rings);
+    glutWireTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
 
     glTranslated(torus->x, torus->y, torus->z);
 

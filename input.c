@@ -1,4 +1,4 @@
-// #include <windows.h>
+#include <windows.h>
 #include <GL/freeglut.h>
 #include <stdio.h>
 
@@ -63,9 +63,9 @@ void skeyPressed(int key, int x, int y)
 
 void moveObject(double x, double y, double z)
 {
-    if (0 <= x <= 1 && 0 <= y <= 1 && 0 <= z <= 1)
+    if (!(-1 <= x <= 1 && -1 <= y <= 1 && -1 <= z <= 1))
     {
-        printf("Error: Vector passed not unitary.\n");
+        printf("Error: Movement vector passed not unitary.\n");
         exit(1);
     }
 

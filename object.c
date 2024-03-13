@@ -7,9 +7,13 @@ Data DATA = {NULL, NULL, NULL};
 
 void initData()
 {
-    // DATA.teapot = createTeapot();
-    // DATA.sphere = createSphere();
-    // DATA.teapot = createTorus();
+    free(DATA.teapot);
+    free(DATA.sphere);
+    free(DATA.teapot);
+
+    DATA.teapot = createTeapot(-5, 0, 5, 2.5);
+    DATA.sphere = createSphere(5, 0, 5, 2.5, 100, 5);
+    DATA.torus = createTorus(-5, 0, -5, 0.5, 2.5, 100, 20);
 }
 
 Teapot *createTeapot(double x, double y, double z, double s)
@@ -27,7 +31,7 @@ Teapot *createTeapot(double x, double y, double z, double s)
     return teapot;
 }
 
-void setTeapot(Teapot *teapot, double x, double y, double z)
+void moveTeapot(Teapot *teapot, double x, double y, double z)
 {
     teapot->x = x;
     teapot->y = y;
@@ -37,7 +41,7 @@ void setTeapot(Teapot *teapot, double x, double y, double z)
     teapot->hitbox_z = z + teapot_hitbox_z;
 }
 
-void moveTeapot(Teapot *teapot, double x, double y, double z)
+void setTeapot(Teapot *teapot, double x, double y, double z)
 {
     teapot->x += x;
     teapot->y += y;
@@ -65,7 +69,7 @@ Sphere *createSphere(double x, double y, double z, double radius, int slices, in
     return sphere;
 }
 
-void setSphere(Sphere *sphere, double x, double y, double z)
+void moveSphere(Sphere *sphere, double x, double y, double z)
 {
     sphere->x += x;
     sphere->y += y;
@@ -75,7 +79,7 @@ void setSphere(Sphere *sphere, double x, double y, double z)
     sphere->hitbox_z = sphere->z + sphere_hitbox_z;
 }
 
-void moveSphere(Sphere *sphere, double x, double y, double z)
+void setSphere(Sphere *sphere, double x, double y, double z)
 {
     sphere->x = x;
     sphere->y = y;
@@ -104,7 +108,7 @@ Torus *createTorus(double x, double y, double z, double innerRadius, double oute
     return torus;
 }
 
-void setTorus(Torus *torus, double x, double y, double z)
+void moveTorus(Torus *torus, double x, double y, double z)
 {
     torus->x += x;
     torus->y += y;
@@ -115,18 +119,7 @@ void setTorus(Torus *torus, double x, double y, double z)
     torus->hitbox_z = torus->z + torus->innerRadius;
 }
 
-void moveTorus(Torus *torus, double x, double y, double z)
-{
-    torus->x = x;
-    torus->y = y;
-    torus->z = z;
-
-    torus->hitbox_x = torus->x + torus->outerRadius + torus->innerRadius;
-    torus->hitbox_y = torus->y + torus->outerRadius + torus->innerRadius;
-    torus->hitbox_z = torus->z + torus->innerRadius;
-}
-
-void moveTorus(Torus *torus, double x, double y, double z)
+void setTorus(Torus *torus, double x, double y, double z)
 {
     torus->x = x;
     torus->y = y;

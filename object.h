@@ -65,6 +65,8 @@ Torus *createTorus(double, double, double, double, double, int, int);
 
 void moveTorus(Torus *, double, double, double); 
 
+// BLOCK
+
 typedef struct
 {
     double x;
@@ -78,6 +80,8 @@ typedef struct
 Block *createBlock(double, double, double, double, double, double);
 
 void moveBlock(Block *, double, double, double); 
+
+// DATA
 
 typedef enum type
 {

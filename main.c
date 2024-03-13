@@ -1,10 +1,12 @@
-#include <windows.h>
+// #include <windows.h>
 #include <GL/freeglut.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
 #include "input.h"
+#include "object.h"
+#include "render.h"
 
 int init()
 {

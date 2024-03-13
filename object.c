@@ -16,6 +16,13 @@ void initData()
     DATA.torus = createTorus(-5, 0, -5, 0.5, 2.5, 100, 20);
 }
 
+void freeData()
+{
+    free(DATA.teapot);
+    free(DATA.sphere);
+    free(DATA.teapot);
+}
+
 Teapot *createTeapot(double x, double y, double z, double s)
 {
     Teapot *teapot;
@@ -33,22 +40,22 @@ Teapot *createTeapot(double x, double y, double z, double s)
 
 void moveTeapot(Teapot *teapot, double x, double y, double z)
 {
-    teapot->x = x;
-    teapot->y = y;
-    teapot->z = z;
-    teapot->hitbox_x = x + teapot_hitbox_x;
-    teapot->hitbox_y = y + teapot_hitbox_y;
-    teapot->hitbox_z = z + teapot_hitbox_z;
-}
-
-void setTeapot(Teapot *teapot, double x, double y, double z)
-{
     teapot->x += x;
     teapot->y += y;
     teapot->z += z;
     teapot->hitbox_x = teapot->x + teapot_hitbox_x;
     teapot->hitbox_y = teapot->y + teapot_hitbox_y;
     teapot->hitbox_z = teapot->z + teapot_hitbox_z;
+}
+
+void setTeapot(Teapot *teapot, double x, double y, double z)
+{
+    teapot->x = x;
+    teapot->y = y;
+    teapot->z = z;
+    teapot->hitbox_x = x + teapot_hitbox_x;
+    teapot->hitbox_y = y + teapot_hitbox_y;
+    teapot->hitbox_z = z + teapot_hitbox_z;
 }
 
 Sphere *createSphere(double x, double y, double z, double radius, int slices, int stacks)

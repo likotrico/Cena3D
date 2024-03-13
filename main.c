@@ -54,5 +54,7 @@ int main(int argc, char **argv)
 
     glutMainLoop();
 
+    freeData();
+
     return 0;
 }

@@ -102,5 +102,6 @@ extern Type SELECTED_TYPE;
 extern Data DATA;
 
 void initData();
+void freeData();
 
 #endif

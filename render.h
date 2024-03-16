@@ -4,5 +4,11 @@
 #include "object.h"
 
 void renderTeapot(Teapot *);
+void renderSphere(Sphere *);
+void renderTorus(Torus *);
+void renderBlock(Block *);
+
+void drawScene();
+
 
 #endif

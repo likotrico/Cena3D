@@ -4,11 +4,18 @@
 #include <stdio.h>
 #include <math.h>
 
+<<<<<<< HEAD
 
 #include "input.h"
 #include "render.h"
 
 
+=======
+#include "input.h"
+#include "object.h"
+#include "render.h"
+
+>>>>>>> 45716ae9edb41436fa30d3848111c46e137e2e69
 int init()
 {
     glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -20,7 +27,11 @@ int init()
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+<<<<<<< HEAD
     gluLookAt(0.0, 0.5, 0.5,
+=======
+    gluLookAt(0.5, 0.5, 0.5,
+>>>>>>> 45716ae9edb41436fa30d3848111c46e137e2e69
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
@@ -53,12 +64,16 @@ int main(int argc, char **argv)
     glutCreateWindow("Cena 3D");
 
     init();
+    initData();
+
     glutDisplayFunc(display);
 
-    // glutKeyboardFunc(keyPressed);
-    // glutSpecialFunc(keyPressed_special);
+    glutKeyboardFunc(keyPressed);
+    glutSpecialFunc(skeyPressed);
 
     glutMainLoop();
+
+    freeData();
 
     return 0;
 }

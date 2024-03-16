@@ -1,13 +1,14 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-//A HITBOX É SETADA NA FUNÇÃO CREATE
+// TEAPOT
 
 #define teapot_hitbox_x 1.7
 #define teapot_hitbox_y 0.7
 #define teapot_hitbox_z 1
 
-typedef struct{
+typedef struct
+{
     double x;
     double y;
     double z;
@@ -31,27 +32,72 @@ typedef struct{
     double hitbox_x;
     double hitbox_y;
     double hitbox_z;
-}Sphere;
 
-Sphere *createSphere(double, double, double, double, int, int); //x, y, z, radius, slices, stacks
+} Sphere;
 
-void moveSphere(Sphere *, double, double, double); //newX, newY, newZ
+Sphere *createSphere(double, double, double, double, int, int);
 
-typedef struct{
+void moveSphere(Sphere *, double, double, double); 
+
+// TORUS
+
+typedef struct
+{
     double x;
     double y;
     double z;
     double innerRadius;
     double outerRadius;
-    int nsides;
+    int sides;
     int rings;
     double hitbox_x;
     double hitbox_y;
     double hitbox_z;
-}Torus;
 
-Torus *createTorus(double, double, double, double, double, int, int); //x, y, z, innerRadius, outerRadius, nsides, rings
+} Torus;
 
-void moveTorus(Torus *, double, double, double); //newX, newY, newZ
+Torus *createTorus(double, double, double, double, double, int, int);
+
+void moveTorus(Torus *, double, double, double); 
+
+// BLOCK
+
+typedef struct
+{
+    double x;
+    double y;
+    double z;
+    double hitbox_x;
+    double hitbox_y;
+    double hitbox_z;
+} Block;
+
+Block *createBlock(double, double, double, double, double, double);
+
+void moveBlock(Block *, double, double, double); 
+
+// DATA
+
+typedef enum type
+{
+    none_type = 0,
+    teapot_type,
+    sphere_type,
+    torus_type
+} Type;
+
+typedef struct data
+{
+    Teapot *teapot;
+    Sphere *sphere;
+    Torus *torus;
+} Data;
+
+extern Type SELECTED_TYPE;
+extern Data DATA;
+
+void initData();
+void freeData();
+
 
 #endif

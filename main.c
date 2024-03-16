@@ -1,11 +1,16 @@
 #include <windows.h>
+#include <GL/freeglut.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <GL/glut.h>
+#include <math.h>
+
 
 #include "input.h"
 #include "render.h"
 
-int init(){
+
+int init()
+{
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glEnable(GL_DEPTH_TEST);
 
@@ -19,10 +24,10 @@ int init(){
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
-
 }
 
-void display(){
+void display()
+{
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -56,26 +61,26 @@ void display(){
         //glVertex3f(0, 0, 1);
     glEnd();
 
-    //NÃO É PRA USAR GLFLUSH
-    glFlush();
-    //glutSwapBuffers();
+
+    glutSwapBuffers();
 
 }
 
-int main(int argc, char** argv){
+i
+int main(int argc, char **argv)
+{
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE| GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(200, 0);
     glutInitWindowSize(800, 800);
     glutCreateWindow("Cena 3D");
 
-
     init();
     glutDisplayFunc(display);
 
-    glutKeyboardFunc(keyPressed);
-    glutSpecialFunc(keyPressed_special);
+    // glutKeyboardFunc(keyPressed);
+    // glutSpecialFunc(keyPressed_special);
 
     glutMainLoop();
 

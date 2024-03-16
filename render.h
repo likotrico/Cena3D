@@ -6,7 +6,7 @@
 void renderTeapot(Teapot *, float, float, float, float);
 void renderSphere(Sphere *);
 void renderTorus(Torus *, float, float, float, float);
-void renderBlock(Block *);
+void renderBlock(Block *, float , float , float , float );
 
 void drawScene();
 

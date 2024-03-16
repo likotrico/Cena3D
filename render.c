@@ -250,11 +250,11 @@ void renderSolidBlock(Block *block){
     glEnd();
 }
 
-void renderBlock(Block *block){
+void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float eixo_z){
 
     glPushMatrix();
     glTranslated(block->x, block->y, block->z);
-
+    glRotatef(angle, eixo_x, eixo_y, eixo_z);
     renderSolidBlock(block);
 
     //APENAS PARA VISUALIZAR AS BORDAS
@@ -266,28 +266,30 @@ void renderBlock(Block *block){
 void drawScene(){
 
 
-    //glPushMatrix();
+    glPushMatrix();
 
     //glRotatef(90,0,1,0);
     //glRotatef(90,0,0,1);
     Block *chao = createBlock(0, -0.05, 0, 1, 0.05, 1);
-    renderBlock(chao);
+    renderBlock(chao, 45, 0, 1, 0);
 
-    Block *p1 = createBlock(1.05, 0.4, 0, 0.05, 0.5, 1);
-    renderBlock(p1);
+    glPopMatrix();
 
-    Block *p2 = createBlock(0.05, 0.4, 1.05, 1.05, 0.5, 0.05);
-    renderBlock(p2);
+    Block *p1 = createBlock(0.74246, 0.4, -0.74246, 0.05, 0.5, 1);
+    renderBlock(p1, 45, 0, 1, 0);
+
+    Block *p2 = createBlock(0.74246, 0.4, 0.74246, 1, 0.5, 0.05);
+    renderBlock(p2, 45, 0, 1, 0);
 
     //glPopMatrix();
     //glRotatef(235,0,1,0);
-    Teapot *t = createTeapot(0.5, 0.14, -0.5, 0.2);
+    Teapot *t = createTeapot(0.0, 0.14, -0.7, 0.2);
     renderTeapot(t, 235, 0, 1, 0);
 
-    Sphere *s = createSphere(0.5, 0.2, 0.5, 0.2, 30, 30);
+    Sphere *s = createSphere(0.8, 0.2, 0.0, 0.2, 30, 30);
     renderSphere(s);
 
-    Torus *tt = createTorus(-0.5, 0.1, 0, 0.1, 0.2, 30, 30);
+    Torus *tt = createTorus(-0.2, 0.1, 0.5, 0.1, 0.2, 30, 30);
     renderTorus(tt, 90, 1, 0, 0);
 
 }

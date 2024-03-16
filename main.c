@@ -20,7 +20,7 @@ int init()
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    gluLookAt(-0.5, 0.5, -0.5,
+    gluLookAt(-0.5, 0.3, -0.00,
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
@@ -49,17 +49,17 @@ void display()
     //renderBlock(b);
 
     //PONTOS PARA TESTAR HITBOX
-    /*glColor3f(0, 0, 0);
+    glColor3f(0, 0, 0);
     glPointSize(5);
     glBegin(GL_POINTS);
-        glVertex3f(0.5, 0.3, -0.5);
+        //glVertex3f(0.5, 0.3, -0.5);
         //glVertex3f(0, -0.05, 0);
 
-        glVertex3f(0, 0, 0);
-        //glVertex3f(1, 0, 0);
+        glVertex3f(0.74246, 0, -0.74246);
+        glVertex3f(1, 0, 0);
         //glVertex3f(0, 1, 0);
-        //glVertex3f(0, 0, 1);
-    glEnd();*/
+        glVertex3f(0, 0, 1);
+    glEnd();
 
 
     glutSwapBuffers();

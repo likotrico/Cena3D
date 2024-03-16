@@ -1,44 +1,46 @@
 #include <windows.h>
+#include <GL/freeglut.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <GL/glut.h>
+#include <math.h>
 
 #include "render.h"
 
 void renderTeapotHitbox(Teapot *teapot){
     glColor3f(0.0f, 1.0f, 0.0f); //TROCAR ISSO POR OUTRA COISA
     glBegin(GL_LINES);
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
         glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
         glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);

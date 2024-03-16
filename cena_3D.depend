@@ -256,20 +256,41 @@
 1426346128 c:\program files (x86)\codeblocks\mingw\include\gl\freeglut_ext.h
 	<stdarg.h>
 
-1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\input.c
+1710102177 source:c:\users\user\desktop\cena3d_projeto\cena3d\input.c
 	<stdio.h>
 	<windows.h>
 	<GL/freeglut.h>
 
-1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\main.c
+1710610309 source:c:\users\user\desktop\cena3d_projeto\cena3d\main.c
 	<windows.h>
+	<GL/freeglut.h>
+	<stdlib.h>
 	<stdio.h>
-	<GL/glut.h>
+	<math.h>
 	"input.h"
+	"render.h"
 
-1709476955 c:\users\user\desktop\cena3d_projeto\cena3d\input.h
+1710609228 c:\users\user\desktop\cena3d_projeto\cena3d\input.h
 
-1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\object.c
+1710610285 source:c:\users\user\desktop\cena3d_projeto\cena3d\object.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"object.h"
 
-1709476955 source:c:\users\user\desktop\cena3d_projeto\cena3d\render.c
+1710609948 source:c:\users\user\desktop\cena3d_projeto\cena3d\render.c
+	<windows.h>
+	<GL/freeglut.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	"render.h"
+
+1710610005 c:\users\user\desktop\cena3d_projeto\cena3d\object.h
+
+1710609929 c:\users\user\desktop\cena3d_projeto\cena3d\render.h
+	"object.h"
+
+1341006774 c:\program files (x86)\codeblocks\mingw\include\math.h
+	<_mingw.h>
 

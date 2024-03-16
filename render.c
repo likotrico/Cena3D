@@ -1,44 +1,46 @@
 #include <windows.h>
+#include <GL/freeglut.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <GL/glut.h>
+#include <math.h>
 
 #include "render.h"
 
 void renderTeapotHitbox(Teapot *teapot){
     glColor3f(0.0f, 1.0f, 0.0f); //TROCAR ISSO POR OUTRA COISA
     glBegin(GL_LINES);
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(teapot->hitbox_x, teapot->hitbox_y, -teapot->hitbox_z);
 
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
-        glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
+    glVertex3f(-teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
 
         glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, teapot->hitbox_z);
         glVertex3f(teapot->hitbox_x, -teapot->hitbox_y, -teapot->hitbox_z);
@@ -160,7 +162,7 @@ void renderTorus(Torus *torus, float angle, float eixo_x, float eixo_y, float ei
     glColor3f(0.0f, 0.0f, 1.0f); //TROCAR GLCOLOR
     glTranslated(torus->x, torus->y, torus->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    glutWireTorus(torus->innerRadius, torus->outerRadius, torus->nsides, torus->rings);
+    glutWireTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
 
     renderTorusHitbox(torus);
 

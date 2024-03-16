@@ -4,8 +4,10 @@
 #include <stdio.h>
 #include <math.h>
 
+
 #include "input.h"
 #include "render.h"
+
 
 int init()
 {
@@ -47,7 +49,7 @@ void display()
     //renderBlock(b);
 
     //PONTOS PARA TESTAR HITBOX
-    glColor3f(0, 0, 0);
+    /*glColor3f(0, 0, 0);
     glPointSize(5);
     glBegin(GL_POINTS);
         glVertex3f(0.5, 0.3, -0.5);
@@ -57,31 +59,34 @@ void display()
         //glVertex3f(1, 0, 0);
         //glVertex3f(0, 1, 0);
         //glVertex3f(0, 0, 1);
-    glEnd();
+    glEnd();*/
 
-    // N�O � PRA USAR GLFLUSH
-    glFlush();
-    //glutSwapBuffers();
+
+    glutSwapBuffers();
 
 }
 
-i
+
 int main(int argc, char **argv)
 {
 
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(200, 0);
     glutInitWindowSize(800, 800);
     glutCreateWindow("Cena 3D");
 
     init();
+    initData();
+
     glutDisplayFunc(display);
 
     glutKeyboardFunc(keyPressed);
-    glutSpecialFunc(keyPressed_special);
+    glutSpecialFunc(skeyPressed);
 
     glutMainLoop();
+
+    freeData();
 
     return 0;
 }

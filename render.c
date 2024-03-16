@@ -162,7 +162,7 @@ void renderTorus(Torus *torus, float angle, float eixo_x, float eixo_y, float ei
     glColor3f(0.0f, 0.0f, 1.0f); //TROCAR GLCOLOR
     glTranslated(torus->x, torus->y, torus->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    glutWireTorus(torus->innerRadius, torus->outerRadius, torus->nsides, torus->rings);
+    glutWireTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
 
     renderTorusHitbox(torus);
 

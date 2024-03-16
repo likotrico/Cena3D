@@ -41,8 +41,7 @@ typedef struct{
 
 Sphere *createSphere(double, double, double, double, int, int);
 
-
-void moveSphere(Sphere *, double, double, double); 
+void moveSphere(Sphere *, double, double, double);
 
 // TORUS
 
@@ -63,7 +62,7 @@ typedef struct
 
 Torus *createTorus(double, double, double, double, double, int, int);
 
-void moveTorus(Torus *, double, double, double); 
+void moveTorus(Torus *, double, double, double);
 
 // BLOCK
 
@@ -79,7 +78,7 @@ typedef struct
 
 Block *createBlock(double, double, double, double, double, double);
 
-void moveBlock(Block *, double, double, double); 
+void moveBlock(Block *, double, double, double);
 
 // DATA
 
@@ -105,17 +104,6 @@ void initData();
 void freeData();
 
 
-typedef struct{
-    double x;
-    double y;
-    double z;
-    double hitbox_x;
-    double hitbox_y;
-    double hitbox_z;
-}Block;
 
-Block *createBlock(double, double, double, double, double, double); //x, y, z, x_expansion, y_expansion, z_expansion
-
-void moveBlock(Block *, double, double, double); //newX, newY, newZ
 
 #endif

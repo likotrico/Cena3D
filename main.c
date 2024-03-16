@@ -49,7 +49,7 @@ void display()
     //renderBlock(b);
 
     //PONTOS PARA TESTAR HITBOX
-    glColor3f(0, 0, 0);
+    /*glColor3f(0, 0, 0);
     glPointSize(5);
     glBegin(GL_POINTS);
         glVertex3f(0.5, 0.3, -0.5);
@@ -59,14 +59,14 @@ void display()
         //glVertex3f(1, 0, 0);
         //glVertex3f(0, 1, 0);
         //glVertex3f(0, 0, 1);
-    glEnd();
+    glEnd();*/
 
 
     glutSwapBuffers();
 
 }
 
-i
+
 int main(int argc, char **argv)
 {
 

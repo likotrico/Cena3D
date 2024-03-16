@@ -99,4 +99,6 @@ void moveObject(double x, double y, double z)
         exit(1);
         break;
     }
+
+    glutPostRedisplay();
 }

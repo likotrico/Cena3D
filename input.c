@@ -39,25 +39,25 @@ void skeyPressed(int key, int x, int y)
     if (key == GLUT_KEY_LEFT)
     {
         printf("Log: Try move to left\n");
-        moveObject(-1, 0, 0);
+        moveObject(0, 0, -1);
     }
 
     if (key == GLUT_KEY_RIGHT)
     {
         printf("Log: Try move to right\n");
-        moveObject(1, 0, 0);
+        moveObject(0, 0, 1);
     }
 
     if (key == GLUT_KEY_UP)
     {
         printf("Log: Try move to up\n");
-        moveObject(0, -1, 0);
+        moveObject(1, 0, 0);
     }
 
     if (key == GLUT_KEY_DOWN)
     {
         printf("Log: Try move to down\n");
-        moveObject(0, 1, 0);
+        moveObject(-1, 0, 0);
     }
 }
 

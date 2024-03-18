@@ -10,14 +10,24 @@
 
 void lighting(){
 
-    float position[4] = {2.0f, 1.0f, 0.0f, 1.0f};
+    float position[4] = {0.0f, 2.0f, 0.0f, 0.0f};
     float white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
-    float black[4] = {0.2f, 0.2f, 0.2f, 0.0f};
+    float diffuse[4] = {0.8f, 0.8f, 0.8f, 1.0f};
+    float black[4] = {0.25f, 0.25f, 0.25f, 1.0f};
 
     glLightfv(GL_LIGHT0, GL_POSITION, position);
     glLightfv(GL_LIGHT0, GL_AMBIENT, black);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, white);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
     glLightfv(GL_LIGHT0, GL_SPECULAR, white);
+
+    glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 0.5f);
+    glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.5f);
+    glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.1f);
+
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
+
+    float global_ambient[4] = {0.2f, 0.2f, 0.2f, 0.1f};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, global_ambient);
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
@@ -26,7 +36,7 @@ void lighting(){
 
 int init()
 {
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClearColor(0.5, 0.5, 0.5, 1.0);
     glEnable(GL_DEPTH_TEST);
 
     glMatrixMode(GL_MODELVIEW);

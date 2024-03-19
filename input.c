@@ -5,6 +5,8 @@
 #include "input.h"
 #include "object.h"
 
+#define not !
+
 void keyPressed(unsigned char key, int x, int y)
 {
     switch (key)
@@ -59,11 +61,16 @@ void skeyPressed(int key, int x, int y)
         printf("Log: Try move to down\n");
         moveObject(0, 1, 0);
     }
+
+    if (key == GLUT_KEY_F3)
+    {
+        // View hitboxes
+    }
 }
 
 void moveObject(double x, double y, double z)
 {
-    if (!(-1 <= x <= 1 && -1 <= y <= 1 && -1 <= z <= 1))
+    if (not(-1 <= x <= 1 && -1 <= y <= 1 && -1 <= z <= 1))
     {
         printf("Error: Movement vector passed not unitary.\n");
         exit(1);

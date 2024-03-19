@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "object.h"
 
@@ -149,4 +150,22 @@ Block *createBlock(double x, double y, double z, double hitbox_x, double hitbox_
     block->hitbox_z = hitbox_z;
 
     return block;
+}
+
+int collisionCheck()
+{
+    switch (SELECTED_TYPE)
+    {
+    case none_type:
+        printf("Error: No object selected.\n");
+        return 0;
+        break;
+    
+    case teapot_type:
+        
+        break;
+    
+    default:
+        break;
+    }    
 }

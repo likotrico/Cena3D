@@ -15,21 +15,18 @@ typedef struct
     double hitbox_x;
     double hitbox_y;
     double hitbox_z;
-    double size;
+    double teapot_size;
 } Teapot;
 
-Teapot *createTeapot(double, double, double, double);
+Teapot *createTeapot(double, double, double, double); //x, y, z, size
 
-void moveTeapot(Teapot *, double, double, double);
-
-// SPHERE
+void moveTeapot(Teapot *, double, double, double); //newX, newY, newZ
 
 #define sphere_hitbox_x 1
 #define sphere_hitbox_y 1
 #define sphere_hitbox_z 1
 
-typedef struct
-{
+typedef struct{
     double x;
     double y;
     double z;
@@ -39,11 +36,12 @@ typedef struct
     double hitbox_x;
     double hitbox_y;
     double hitbox_z;
+
 } Sphere;
 
 Sphere *createSphere(double, double, double, double, int, int);
 
-void moveSphere(Sphere *, double, double, double); 
+void moveSphere(Sphere *, double, double, double);
 
 // TORUS
 
@@ -59,11 +57,12 @@ typedef struct
     double hitbox_x;
     double hitbox_y;
     double hitbox_z;
+
 } Torus;
 
 Torus *createTorus(double, double, double, double, double, int, int);
 
-void moveTorus(Torus *, double, double, double); 
+void moveTorus(Torus *, double, double, double);
 
 // BLOCK
 
@@ -79,7 +78,7 @@ typedef struct
 
 Block *createBlock(double, double, double, double, double, double);
 
-void moveBlock(Block *, double, double, double); 
+void moveBlock(Block *, double, double, double);
 
 // DATA
 
@@ -103,5 +102,8 @@ extern Data DATA;
 
 void initData();
 void freeData();
+
+
+
 
 #endif

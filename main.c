@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(200, 0);
-    glutInitWindowSize(800, 800);
+    glutInitWindowSize(400, 400);
     glutCreateWindow("Cena 3D");
 
     init();

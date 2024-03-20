@@ -3,6 +3,8 @@
 
 #define SPEED 0.1
 
+extern int HITBOX_ON;
+
 void keyPressed(unsigned char, int, int);
 void skeyPressed(int, int, int);
 

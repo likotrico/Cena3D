@@ -5,6 +5,7 @@
 #include <math.h>
 
 #include "render.h"
+#include "input.h"
 
 void renderTeapotHitbox(Teapot *teapot)
 {
@@ -73,7 +74,8 @@ void renderTeapot(Teapot *teapot, float angle, float eixo_x, float eixo_y, float
     // glutWireTeapot(teapot->size);
     glutSolidTeapot(teapot->size);
 
-    renderTeapotHitbox(teapot);
+    if (HITBOX_ON)
+        renderTeapotHitbox(teapot);
 
     glPopMatrix();
 }
@@ -143,7 +145,9 @@ void renderSphere(Sphere *sphere)
     // glutWireSphere(sphere->radius, sphere->slices, sphere->stacks);
     glutSolidSphere(sphere->radius, sphere->slices, sphere->stacks);
 
-    renderSphereHitbox(sphere);
+    if (HITBOX_ON)
+        renderSphereHitbox(sphere);
+
     glPopMatrix();
 }
 
@@ -211,7 +215,8 @@ void renderTorus(Torus *torus, float angle, float eixo_x, float eixo_y, float ei
     // glutWireTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
     glutSolidTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
 
-    renderTorusHitbox(torus);
+    if (HITBOX_ON)
+        renderTorusHitbox(torus);
 
     glPopMatrix();
 }
@@ -374,7 +379,6 @@ void renderSolidBlock(Block *block)
 
 void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float eixo_z)
 {
-
     glPushMatrix();
     glTranslated(block->x, block->y, block->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);

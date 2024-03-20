@@ -7,9 +7,8 @@
 #include "input.h"
 #include "render.h"
 
-
-void lighting(){
-
+void lighting()
+{
     float position[4] = {0.0f, 2.0f, 0.0f, 0.0f};
     float white[4] = {1.0f, 1.0f, 1.0f, 1.0f};
     float diffuse[4] = {0.8f, 0.8f, 0.8f, 1.0f};
@@ -31,7 +30,6 @@ void lighting(){
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-
 }
 
 int init()
@@ -45,45 +43,31 @@ int init()
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
 
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glOrtho(-2, 2, -2, 2, -2, 2);
 
     lighting();
-
 }
 
 void display()
 {
-
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glMatrixMode(GL_MODELVIEW);
 
+    glViewport(0, -150, 800, 800);
     drawScene();
-
-    //PONTOS PARA TESTAR HITBOX
-    /*glColor3f(0, 0, 0);
-    glPointSize(5);
-    glBegin(GL_POINTS);
-        glVertex3f(0.74246, 0, -0.74246);
-        glVertex3f(1, 0, 0);
-        glVertex3f(0, 0, 1);
-    glEnd();*/
-
+    
     glutSwapBuffers();
-
 }
-
 
 int main(int argc, char **argv)
 {
-
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowPosition(200, 0);
-    glutInitWindowSize(400, 400);
+    glutInitWindowSize(800, 600);
     glutCreateWindow("Cena 3D");
 
     init();

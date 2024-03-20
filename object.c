@@ -16,6 +16,9 @@ void initData()
     DATA.teapot = createTeapot(0.0, 0.14, -0.7, 0.2);
     DATA.sphere = createSphere(0.8, 0.2, 0.0, 0.2, 30, 30);
     DATA.torus = createTorus(-0.2, 0.1, 0.5, 0.06, 0.2, 30, 30);
+    DATA.floor = createBlock(0, -0.05, 0, 1, 0.05, 1);
+    DATA.wall1 = createBlock(0.74246, 0.4, -0.74246, 0.05, 0.5, 1);
+    DATA.wall2 = createBlock(0.74246, 0.4, 0.74246, 1, 0.5, 0.05);
 }
 
 void freeData()
@@ -33,9 +36,9 @@ Teapot *createTeapot(double x, double y, double z, double s)
     teapot->y = y;
     teapot->z = z;
     teapot->size = s;
-    teapot->hitbox_x = 0 + teapot_hitbox_x*teapot->size;
-    teapot->hitbox_y = 0 + teapot_hitbox_y*teapot->size;
-    teapot->hitbox_z = 0 + teapot_hitbox_z*teapot->size;
+    teapot->hitbox_x = 0 + teapot_hitbox_x * teapot->size;
+    teapot->hitbox_y = 0 + teapot_hitbox_y * teapot->size;
+    teapot->hitbox_z = 0 + teapot_hitbox_z * teapot->size;
 
     return teapot;
 }
@@ -45,9 +48,9 @@ void moveTeapot(Teapot *teapot, double x, double y, double z)
     teapot->x += x;
     teapot->y += y;
     teapot->z += z;
-    //teapot->hitbox_x = 0 + teapot_hitbox_x*teapot->size;
-    //teapot->hitbox_y = 0 + teapot_hitbox_y*teapot->size;
-    //teapot->hitbox_z = 0 + teapot_hitbox_z*teapot->size;
+    // teapot->hitbox_x = 0 + teapot_hitbox_x*teapot->size;
+    // teapot->hitbox_y = 0 + teapot_hitbox_y*teapot->size;
+    // teapot->hitbox_z = 0 + teapot_hitbox_z*teapot->size;
 }
 
 void setTeapot(Teapot *teapot, double x, double y, double z)
@@ -55,9 +58,9 @@ void setTeapot(Teapot *teapot, double x, double y, double z)
     teapot->x = x;
     teapot->y = y;
     teapot->z = z;
-    //teapot->hitbox_x = x + teapot_hitbox_x;
-    //teapot->hitbox_y = y + teapot_hitbox_y;
-    //teapot->hitbox_z = z + teapot_hitbox_z;
+    // teapot->hitbox_x = x + teapot_hitbox_x;
+    // teapot->hitbox_y = y + teapot_hitbox_y;
+    // teapot->hitbox_z = z + teapot_hitbox_z;
 }
 
 Sphere *createSphere(double x, double y, double z, double radius, int slices, int stacks)
@@ -83,9 +86,9 @@ void moveSphere(Sphere *sphere, double x, double y, double z)
     sphere->x += x;
     sphere->y += y;
     sphere->z += z;
-    //sphere->hitbox_x = sphere->x + sphere_hitbox_x;
-    //sphere->hitbox_y = sphere->y + sphere_hitbox_y;
-    //sphere->hitbox_z = sphere->z + sphere_hitbox_z;
+    // sphere->hitbox_x = sphere->x + sphere_hitbox_x;
+    // sphere->hitbox_y = sphere->y + sphere_hitbox_y;
+    // sphere->hitbox_z = sphere->z + sphere_hitbox_z;
 }
 
 void setSphere(Sphere *sphere, double x, double y, double z)
@@ -93,9 +96,9 @@ void setSphere(Sphere *sphere, double x, double y, double z)
     sphere->x = x;
     sphere->y = y;
     sphere->z = z;
-    //sphere->hitbox_x = x + sphere_hitbox_x;
-    //sphere->hitbox_y = y + sphere_hitbox_y;
-    //sphere->hitbox_z = z + sphere_hitbox_z;
+    // sphere->hitbox_x = x + sphere_hitbox_x;
+    // sphere->hitbox_y = y + sphere_hitbox_y;
+    // sphere->hitbox_z = z + sphere_hitbox_z;
 }
 
 Torus *createTorus(double x, double y, double z, double innerRadius, double outerRadius, int sides, int rings)
@@ -123,9 +126,9 @@ void moveTorus(Torus *torus, double x, double y, double z)
     torus->y += y;
     torus->z += z;
 
-    //torus->hitbox_x = torus->x + torus->outerRadius + torus->innerRadius;
-    //torus->hitbox_y = torus->y + torus->outerRadius + torus->innerRadius;
-    //torus->hitbox_z = torus->z + torus->innerRadius;
+    // torus->hitbox_x = torus->x + torus->outerRadius + torus->innerRadius;
+    // torus->hitbox_y = torus->y + torus->outerRadius + torus->innerRadius;
+    // torus->hitbox_z = torus->z + torus->innerRadius;
 }
 
 void setTorus(Torus *torus, double x, double y, double z)
@@ -134,9 +137,9 @@ void setTorus(Torus *torus, double x, double y, double z)
     torus->y = y;
     torus->z = z;
 
-    //torus->hitbox_x = torus->x + torus->outerRadius + torus->innerRadius;
-    //torus->hitbox_y = torus->y + torus->outerRadius + torus->innerRadius;
-    //torus->hitbox_z = torus->z + torus->innerRadius;
+    // torus->hitbox_x = torus->x + torus->outerRadius + torus->innerRadius;
+    // torus->hitbox_y = torus->y + torus->outerRadius + torus->innerRadius;
+    // torus->hitbox_z = torus->z + torus->innerRadius;
 }
 
 Block *createBlock(double x, double y, double z, double hitbox_x, double hitbox_y, double hitbox_z)
@@ -161,12 +164,12 @@ int collisionCheck()
         printf("Error: No object selected.\n");
         return 0;
         break;
-    
+
     case teapot_type:
-        
+
         break;
-    
+
     default:
         break;
-    }    
+    }
 }

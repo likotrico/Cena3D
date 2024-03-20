@@ -126,7 +126,6 @@ void renderSphereHitbox(Sphere *sphere)
 
 void renderSphere(Sphere *sphere)
 {
-
     glPushMatrix();
 
     // glColor3f(0.0f, 0.0f, 1.0f); //TROCAR GLCOLOR
@@ -193,7 +192,8 @@ void renderTorusHitbox(Torus *torus)
 }
 
 void renderTorus(Torus *torus, float angle, float eixo_x, float eixo_y, float eixo_z)
-{ // torus object, grau, eixo x, eixo y, eixo z
+{
+    // torus object, grau, eixo x, eixo y, eixo z
 
     glPushMatrix();
 
@@ -388,23 +388,19 @@ void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float ei
 
 void drawScene()
 {
-
     glPushMatrix();
 
-    Block *chao = createBlock(0, -0.05, 0, 1, 0.05, 1);
-    renderBlock(chao, 45, 0, 1, 0); // 45 grau
+    renderBlock(DATA.floor, 45, 0, 1, 0); // 45°
 
     glPopMatrix();
 
     glPushMatrix();
 
-    Block *p1 = createBlock(0.74246, 0.4, -0.74246, 0.05, 0.5, 1);
-    renderBlock(p1, 45, 0, 1, 0);
+    renderBlock(DATA.wall1, 45, 0, 1, 0);
 
     glPopMatrix();
 
-    Block *p2 = createBlock(0.74246, 0.4, 0.74246, 1, 0.5, 0.05);
-    renderBlock(p2, 45, 0, 1, 0);
+    renderBlock(DATA.wall2, 45, 0, 1, 0);
 
     glPopMatrix();
 

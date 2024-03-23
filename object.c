@@ -12,10 +12,17 @@ void initData()
     free(DATA.teapot);
     free(DATA.sphere);
     free(DATA.teapot);
+    free(DATA.vector_blocks);
 
-    DATA.teapot = createTeapot(0.0, 0.14, -0.7, 0.2);
+    DATA.vector_blocks = (Block*)malloc(sizeof(Block)*3);
+
+    DATA.teapot = createTeapot(0.0, 0.14, -0.7, 0.2); // x= 0, y=0.14 z=-0.7
     DATA.sphere = createSphere(0.8, 0.2, 0.0, 0.2, 30, 30);
     DATA.torus = createTorus(-0.2, 0.1, 0.5, 0.06, 0.2, 30, 30);
+
+    DATA.vector_blocks[0] = createBlock(0, -0.05, 0, 1, 0.05, 1); // chão
+    DATA.vector_blocks[1] = createBlock(0.74246, 0.4, -0.74246, 0.05, 0.5, 1); // parede esquerda
+    DATA.vector_blocks[2] = createBlock(0.74246, 0.4, 0.74246, 1, 0.5, 0.05); //parede direita
 }
 
 void freeData()

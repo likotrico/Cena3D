@@ -66,8 +66,8 @@ void renderTeapot(Teapot *teapot, float angle, float eixo_x, float eixo_y, float
 
     glTranslated(teapot->x, teapot->y, teapot->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    //glutWireTeapot(teapot->teapot_size);
-    glutSolidTeapot(teapot->teapot_size);
+    glutWireTeapot(teapot->teapot_size);
+    //glutSolidTeapot(teapot->teapot_size);
 
     renderTeapotHitbox(teapot);
 
@@ -364,7 +364,7 @@ void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float ei
     glPushMatrix();
     glTranslated(block->x, block->y, block->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    renderSolidBlock(block);
+    //renderSolidBlock(block);
 
     //APENAS PARA VISUALIZAR AS BORDAS
     renderWireBlock(block);
@@ -377,27 +377,27 @@ void drawScene(){
 
     glPushMatrix();
 
-    Block *chao = createBlock(0, -0.05, 0, 1, 0.05, 1);
-    renderBlock(chao, 45, 0, 1, 0); //45 grau
+    //Block *chao = createBlock(0, -0.05, 0, 1, 0.05, 1);
+    renderBlock(DATA.vector_blocks[0], 45, 0, 1, 0);
 
     glPopMatrix();
 
     glPushMatrix();
 
-    Block *p1 = createBlock(0.74246, 0.4, -0.74246, 0.05, 0.5, 1);
-    renderBlock(p1, 45, 0, 1, 0);
+    //Block *p1 = createBlock(0.74246, 0.4, -0.74246, 0.05, 0.5, 1); // 0.74246
+    renderBlock(DATA.vector_blocks[1], 45, 0, 1, 0);
 
     glPopMatrix();
 
-    Block *p2 = createBlock(0.74246, 0.4, 0.74246, 1, 0.5, 0.05);
-    renderBlock(p2, 45, 0, 1, 0);
+    //Block *p2 = createBlock(0.74246, 0.4, 0.74246, 1, 0.5, 0.05);
+    renderBlock(DATA.vector_blocks[2], 45, 0, 1, 0);
 
     glPopMatrix();
 
     glPopMatrix();
 
     //Teapot *t = createTeapot(0.0, 0.14, -0.7, 0.2);
-    renderTeapot(DATA.teapot, 235, 0, 1, 0);
+    renderTeapot(DATA.teapot, 270, 0, 1, 0);
 
     //Sphere *s = createSphere(0.8, 0.2, 0.0, 0.2, 30, 30);
     renderSphere(DATA.sphere);

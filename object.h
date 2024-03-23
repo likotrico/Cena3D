@@ -95,6 +95,7 @@ typedef struct data
     Teapot *teapot;
     Sphere *sphere;
     Torus *torus;
+    Block **vector_blocks;
 } Data;
 
 extern Type SELECTED_TYPE;

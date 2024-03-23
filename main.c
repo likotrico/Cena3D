@@ -31,6 +31,7 @@ void lighting(){
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
+    glEnable(GL_COLOR_MATERIAL);
 
 }
 
@@ -39,9 +40,12 @@ int init()
     glClearColor(0.5, 0.5, 0.5, 1.0);
     glEnable(GL_DEPTH_TEST);
 
+    //glEnable(GL_CULL_FACE);
+    //glCullFace(GL_BACK);
+
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(-0.5, 0.3, 0.0,
+    glLoadIdentity();//0.0001
+    gluLookAt(-0.0001, 0.1, 0.0, //-0.5, 0.3, 0.0
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
 
@@ -61,16 +65,19 @@ void display()
 
     glMatrixMode(GL_MODELVIEW);
 
+    cair();
     drawScene();
 
-    //PONTOS PARA TESTAR HITBOX
-    /*glColor3f(0, 0, 0);
+
+    //printf("%f", DATA.sphere->x+)
+
+    glColor3f(0, 0, 0);
     glPointSize(5);
     glBegin(GL_POINTS);
-        glVertex3f(0.74246, 0, -0.74246);
-        glVertex3f(1, 0, 0);
-        glVertex3f(0, 0, 1);
-    glEnd();*/
+        //glVertex3f(0, 0, -0.7);
+        //glVertex3f(0, 0, -1.414214);
+        glVertex3f(-1.414214, 0, 0);
+    glEnd();
 
     glutSwapBuffers();
 

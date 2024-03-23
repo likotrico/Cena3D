@@ -63,7 +63,16 @@ void skeyPressed(int key, int x, int y)
     }
 
     if (key == GLUT_KEY_F3)
+    {
         HITBOX_ON = !HITBOX_ON;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_F5)
+    {
+        initData();
+        glutPostRedisplay();
+    }
 }
 
 void moveObject(double x, double y, double z)

@@ -11,7 +11,7 @@ void initData()
 {
     free(DATA.teapot);
     free(DATA.sphere);
-    free(DATA.teapot);
+    free(DATA.torus);
     free(DATA.floor);
     free(DATA.wall1);
     free(DATA.wall2);
@@ -28,7 +28,10 @@ void freeData()
 {
     free(DATA.teapot);
     free(DATA.sphere);
-    free(DATA.teapot);
+    free(DATA.torus);
+    free(DATA.floor);
+    free(DATA.wall1);
+    free(DATA.wall2);
 }
 
 Teapot *createTeapot(double x, double y, double z, double s)
@@ -149,7 +152,7 @@ int collisionCheck()
         break;
 
     case teapot_type:
-        
+
         break;
 
     default:

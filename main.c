@@ -44,7 +44,7 @@ int init()
     glMatrixMode(GL_PROJECTION);
     gluPerspective(FOV, 1, near_clip, far_clip);
 
-    // glMatrixMode(GL_MODELVIEW);
+    glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(-0.5, 0.3, 0.0,
               0.0, 0.0, 0.0,

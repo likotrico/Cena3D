@@ -7,10 +7,6 @@
 #include "input.h"
 #include "render.h"
 
-double FOV = 70;
-double near_clip = -5;
-double far_clip = 0;
-
 void lighting()
 {
     float position[4] = {0.0f, 2.0f, 0.0f, 0.0f};
@@ -42,7 +38,8 @@ int init()
     glEnable(GL_DEPTH_TEST);
 
     glMatrixMode(GL_PROJECTION);
-    gluPerspective(FOV, 1, near_clip, far_clip);
+    glLoadIdentity();
+    gluPerspective(45.0, 1, 0.01, 10);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -51,7 +48,6 @@ int init()
               0.0, 1.0, 0.0);
 
     glLoadIdentity();
-    glOrtho(-2, 2, -2, 2, -2, 2);
 
     lighting();
 }
@@ -60,7 +56,7 @@ void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    glMatrixMode(GL_PROJECTION);
+    glMatrixMode(GL_MODELVIEW);
 
     glViewport(0, -150, 800, 800);
     drawScene();

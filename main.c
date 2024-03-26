@@ -5,6 +5,8 @@
 #include <math.h>
 
 #include "input.h"
+#include "object.h"
+#include "physics.h"
 #include "render.h"
 
 void lighting()

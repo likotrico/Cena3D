@@ -4,10 +4,11 @@
 #include <math.h>
 
 #include "input.h"
-#include "collision.h"
 #include "object.h"
+#include "physics.h"
 
 int HITBOX_ON = 0;
+int WIRE_ON = 0;
 
 void keyPressed(unsigned char key, int x, int y)
 {
@@ -80,6 +81,12 @@ void skeyPressed(int key, int x, int y)
     if (key == GLUT_KEY_F3)
     {
         HITBOX_ON = !HITBOX_ON;
+        glutPostRedisplay();
+    }
+
+    if (key == GLUT_KEY_F4)
+    {
+        WIRE_ON = !WIRE_ON;
         glutPostRedisplay();
     }
 

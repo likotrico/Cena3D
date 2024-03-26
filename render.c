@@ -9,7 +9,7 @@
 
 void renderTeapotHitbox(Teapot *teapot)
 {
-    glColor3f(0.0f, 1.0f, 0.0f); // TROCAR ISSO POR OUTRA COISA
+    // glColor3f(0.0f, 1.0f, 0.0f); // TROCAR ISSO POR OUTRA COISA
 
     glBegin(GL_LINES);
 
@@ -72,8 +72,10 @@ void renderTeapot(Teapot *teapot, float angle, float eixo_x, float eixo_y, float
     glTranslated(teapot->x, teapot->y, teapot->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
 
-    glutWireTeapot(teapot->size);
-    // glutSolidTeapot(teapot->size);
+    if (WIRE_ON)
+        glutWireTeapot(teapot->size);
+    else
+        glutSolidTeapot(teapot->size);
 
     if (HITBOX_ON)
         renderTeapotHitbox(teapot);
@@ -84,7 +86,7 @@ void renderTeapot(Teapot *teapot, float angle, float eixo_x, float eixo_y, float
 // ARRUMAR PARA ACOMPANHAR O VALOR DE X SEM PRECISAR DEPENDER DA MATRIX
 void renderSphereHitbox(Sphere *sphere)
 {
-    glColor3f(0.0f, 1.0f, 0.0f); // TROCAR ISSO POR OUTRA COISA
+    // glColor3f(0.0f, 1.0f, 0.0f); // TROCAR ISSO POR OUTRA COISA
 
     glBegin(GL_LINES);
 
@@ -143,8 +145,11 @@ void renderSphere(Sphere *sphere)
     glMaterialf(GL_FRONT, GL_SHININESS, ns_sphere);
 
     glTranslated(sphere->x, sphere->y, sphere->z);
-    // glutWireSphere(sphere->radius, sphere->slices, sphere->stacks);
-    glutSolidSphere(sphere->radius, sphere->slices, sphere->stacks);
+
+    if (WIRE_ON)
+        glutWireSphere(sphere->radius, sphere->slices, sphere->stacks);
+    else
+        glutSolidSphere(sphere->radius, sphere->slices, sphere->stacks);
 
     if (HITBOX_ON)
         renderSphereHitbox(sphere);
@@ -154,7 +159,7 @@ void renderSphere(Sphere *sphere)
 
 void renderTorusHitbox(Torus *torus)
 {
-    glColor3f(0.0f, 1.0f, 0.0f); // TROCAR ISSO POR OUTRA COISA
+    // glColor3f(0.0f, 1.0f, 0.0f); // TROCAR ISSO POR OUTRA COISA
     glBegin(GL_LINES);
 
     glVertex3f(-torus->hitbox_x, torus->hitbox_y, -torus->hitbox_z);
@@ -213,8 +218,11 @@ void renderTorus(Torus *torus, float angle, float eixo_x, float eixo_y, float ei
 
     glTranslated(torus->x, torus->y, torus->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    // glutWireTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
-    glutSolidTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
+
+    if (WIRE_ON)
+        glutWireTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
+    else
+        glutSolidTorus(torus->innerRadius, torus->outerRadius, torus->sides, torus->rings);
 
     if (HITBOX_ON)
         renderTorusHitbox(torus);
@@ -300,7 +308,6 @@ void renderWireBlock(Block *block)
 
 void renderSolidBlock(Block *block)
 {
-
     float kd_block[4] = {0.65f, 0.0f, 0.0f, 1.0f}; // DEFINE A COR
     float ks_block[4] = {0.9f, 0.9f, 0.9f, 1.0f};  // DEFINE O QUAL CONCENTRADO FICA A LUZ NA SUPERFICIE
     float ns_block = 65.0f;
@@ -383,10 +390,11 @@ void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float ei
     glPushMatrix();
     glTranslated(block->x, block->y, block->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    // renderSolidBlock(block);
 
-    // APENAS PARA VISUALIZAR AS BORDAS
-    renderWireBlock(block);
+    if (WIRE_ON)
+        renderWireBlock(block);
+    else
+        renderSolidBlock(block);
 
     glPopMatrix();
 }

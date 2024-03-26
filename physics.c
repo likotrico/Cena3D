@@ -1,4 +1,7 @@
-#include "collision.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+#include "physics.h"
 #include "object.h"
 
 int verifyCollision(int esq, int dir, int baixo, int cima)

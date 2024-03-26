@@ -505,7 +505,8 @@ void cair(){
                     DATA.teapot->x - DATA.teapot->hitbox_x + 0.13};
 
     if(isBelow1(v1[0], v1[1]) && isBelow1(v2[0], v2[1]) && isBelow1(v3[0], v3[1]) && isBelow1(v4[0], v4[1])) DATA.teapot->y-=0.1;
-    if(isBelow2(v1[0], v1[1]) && isBelow2(v2[0], v2[1]) && isBelow2(v3[0], v3[1]) && isBelow2(v4[0], v4[1])) DATA.teapot->y-=0.1;
+    else if(isBelow2(v1[0], v1[1]) && isBelow2(v2[0], v2[1]) && isBelow2(v3[0], v3[1]) && isBelow2(v4[0], v4[1])) DATA.teapot->y-=0.1;
+    else if(v1[1] < -1.414214 && v2[1] < -1.414214 && v3[1] < -1.414214 && v4[1] < -1.414214) DATA.teapot->y-=0.1;
 
     //VERIFICANDO ESFERA
     double v1s[2] = {DATA.sphere->z+DATA.sphere->hitbox_z,
@@ -521,7 +522,8 @@ void cair(){
                     DATA.sphere->x - DATA.sphere->hitbox_x};
 
     if(isBelow1(v1s[0], v1s[1]) && isBelow1(v2s[0], v2s[1]) && isBelow1(v3s[0], v3s[1]) && isBelow1(v4s[0], v4s[1])) DATA.sphere->y-=0.1;
-    if(isBelow2(v1s[0], v1s[1]) && isBelow2(v2s[0], v2s[1]) && isBelow2(v3s[0], v3s[1]) && isBelow2(v4s[0], v4s[1])) DATA.sphere->y-=0.1;
+    else if(isBelow2(v1s[0], v1s[1]) && isBelow2(v2s[0], v2s[1]) && isBelow2(v3s[0], v3s[1]) && isBelow2(v4s[0], v4s[1])) DATA.sphere->y-=0.1;
+    else if(v1s[1] < -1.414214 && v2s[1] < -1.414214 && v3s[1] < -1.414214 && v4s[1] < -1.414214) DATA.sphere->y-=0.1;
 
     //VERIFICANDO TORUS
     double v1t[2] = {DATA.torus->z+DATA.torus->hitbox_z + 0.2,
@@ -537,7 +539,8 @@ void cair(){
                     DATA.torus->x - DATA.torus->hitbox_x};
 
     if(isBelow1(v1t[0], v1t[1]) && isBelow1(v2t[0], v2t[1]) && isBelow1(v3t[0], v3t[1]) && isBelow1(v4t[0], v4t[1])) DATA.torus->y-=0.1;
-    if(isBelow2(v1t[0], v1t[1]) && isBelow2(v2t[0], v2t[1]) && isBelow2(v3t[0], v3t[1]) && isBelow2(v4t[0], v4t[1])) DATA.torus->y-=0.1;
+    else if(isBelow2(v1t[0], v1t[1]) && isBelow2(v2t[0], v2t[1]) && isBelow2(v3t[0], v3t[1]) && isBelow2(v4t[0], v4t[1])) DATA.torus->y-=0.1;
+    else if(v1t[1] < -1.414214 && v2t[1] < -1.414214 && v3t[1] < -1.414214 && v4t[1] < -1.414214) DATA.torus->y-=0.1;
 }
 
 

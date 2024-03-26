@@ -67,7 +67,7 @@ void renderTeapot(Teapot *teapot, float angle, float eixo_x, float eixo_y, float
     glTranslated(teapot->x, teapot->y, teapot->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
     glutWireTeapot(teapot->teapot_size);
-    //glutSolidTeapot(teapot->teapot_size);
+    glutSolidTeapot(teapot->teapot_size);
 
     renderTeapotHitbox(teapot);
 
@@ -122,8 +122,10 @@ void renderSphere(Sphere *sphere){
     //glColor3f(0.0f, 0.0f, 1.0f); //TROCAR GLCOLOR
     float kd_sphere[4] = {0.65f, 0.65f, 0.0f, 1.0f}; //DEFINE A COR
     float ks_sphere[4] = {0.9f, 0.9f, 0.9f, 1.0f}; //DEFINE O QUAL CONCENTRADO FICA A LUZ NA SUPERFICIE
-    float ambient_sphere[4] = {1.0f, 0.63f, 0.0f, 1.0f};
+    //float ambient_sphere[4] = {1.0f, 0.63f, 0.0f, 1.0f};
+    float ambient_sphere[4] = {0.1f, 0.1f, 0.1f, 1.0f};
     float ns_sphere = 65.0f;
+
 
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, kd_sphere);
     glMaterialfv(GL_FRONT, GL_SPECULAR, ks_sphere);
@@ -253,28 +255,6 @@ void renderWireBlock(Block *block){
 
 }
 
-/*double *normalVector(double *p, double *q, double *r){
-    double *pq; pq = (double*)malloc(sizeof(double)*3);
-    double *pr; pr = (double*)malloc(sizeof(double)*3);
-    double *result; result = (double*)malloc(sizeof(double)*3);
-
-    pq[0] = q[0] - p[0]; //coord x
-    pq[1] = q[1] - p[1]; //coord y
-    pq[2] = q[2] - p[2]; //coord z
-
-    pr[0] = r[0] - p[0]; //coord x
-    pr[1] = r[1] - p[1]; //coord y
-    pr[2] = r[2] - p[2]; //coord z
-
-    //pq 1  pq[0]=x1; pq[1]=y1; pq[2]=z1
-    //pr 2  pr[0]=x2; pr[1]=y2; pr[2]=z2
-    result[0] = (pq[1]*pr[2]) - (pq[2]*pr[1]);
-    result[1] = (pr[0]*pq[2]) - (pq[0]*pr[2]);
-    result[2] = (pq[0]*pr[1]) - (pr[0]*pq[1]);
-
-    return result;
-
-}*/
 
 void renderSolidBlock(Block *block){
 
@@ -364,7 +344,7 @@ void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float ei
     glPushMatrix();
     glTranslated(block->x, block->y, block->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    //renderSolidBlock(block);
+    renderSolidBlock(block);
 
     //APENAS PARA VISUALIZAR AS BORDAS
     renderWireBlock(block);

@@ -383,7 +383,7 @@ void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float ei
     glPushMatrix();
     glTranslated(block->x, block->y, block->z);
     glRotatef(angle, eixo_x, eixo_y, eixo_z);
-    //renderSolidBlock(block);
+    // renderSolidBlock(block);
 
     // APENAS PARA VISUALIZAR AS BORDAS
     renderWireBlock(block);
@@ -394,11 +394,13 @@ void renderBlock(Block *block, float angle, float eixo_x, float eixo_y, float ei
 void drawScene()
 {
     // Floor
+
     glPushMatrix();
     renderBlock(DATA.floor, 45, 0, 1, 0); // 45°
     glPopMatrix();
 
     // Walls
+
     glPushMatrix();
 
     renderBlock(DATA.wall1, 45, 0, 1, 0);

@@ -58,16 +58,16 @@ void display()
 
     glMatrixMode(GL_MODELVIEW);
 
+    fall();
     drawScene();
 
-    // PONTOS PARA TESTAR HITBOX
-    /*glColor3f(0, 0, 0);
-    glPointSize(5);
-    glBegin(GL_POINTS);
-        glVertex3f(0.74246, 0, -0.74246);
-        glVertex3f(1, 0, 0);
-        glVertex3f(0, 0, 1);
-    glEnd();*/
+    // glColor3f(0, 0, 0);
+    // glPointSize(5);
+    // glBegin(GL_POINTS);
+    //     //glVertex3f(0, 0, -0.7);
+    //     //glVertex3f(0, 0, -1.414214);
+    //     glVertex3f(-1.414214, 0, 0);
+    // glEnd();
 
     glutSwapBuffers();
 }

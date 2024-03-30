@@ -10,5 +10,4 @@ void renderBlock(Block *, float , float , float , float );
 
 void drawScene();
 
-
 #endif

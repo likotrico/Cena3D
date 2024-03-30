@@ -33,7 +33,6 @@ void lighting()
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-    glEnable(GL_COLOR_MATERIAL);
 }
 
 int init()
@@ -60,14 +59,6 @@ void display()
 
     fall();
     drawScene();
-
-    // glColor3f(0, 0, 0);
-    // glPointSize(5);
-    // glBegin(GL_POINTS);
-    //     glVertex3f(0, 0, -0.7);
-    //     glVertex3f(0, 0, -1.414214);
-    //     glVertex3f(-1.414214, 0, 0);
-    // glEnd();
 
     glutSwapBuffers();
 }

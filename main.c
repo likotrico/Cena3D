@@ -33,7 +33,6 @@ void lighting()
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-
 }
 
 int init()
@@ -41,14 +40,9 @@ int init()
     glClearColor(0.5, 0.5, 0.5, 1.0);
     glEnable(GL_DEPTH_TEST);
 
-    glMatrixMode(GL_MODELVIEW);
-
-    glLoadIdentity();
-    gluLookAt(-2, 2, 0.0, 0.0, 0.0, 0.0, 0, 1, 0);
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(70, 1, 0.1, 5);
+    gluPerspective(70, 1, 0.01, 10);
 
     lighting();
 }
@@ -57,11 +51,19 @@ void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    double eyeX = (1 + ZOOM * INC_Z) * -2;
+    double eyeY = (1 + ZOOM * INC_Z) * 2;
+    double eyeZ = (1 + ZOOM * INC_Z) * 0;
+    double aimX = 0;
+    double aimY = 0;
+    double aimZ = 0;
+
     glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(eyeX, eyeY, eyeZ, aimX, aimY, aimZ, 0, 1, 0);
 
     fall();
     drawScene();
-
 
     glutSwapBuffers();
 }
@@ -70,8 +72,8 @@ int main(int argc, char **argv)
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowPosition(200, 0);
-    glutInitWindowSize(600, 600);
+    glutInitWindowPosition(300, 0);
+    glutInitWindowSize(640, 640);
     glutCreateWindow("Cena 3D");
 
     init();

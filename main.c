@@ -65,6 +65,8 @@ void display()
     fall();
     drawScene();
 
+    glutPostRedisplay();
+
     glutSwapBuffers();
 }
 

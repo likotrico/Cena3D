@@ -17,7 +17,7 @@ void initData()
     free(DATA.wall1);
     free(DATA.wall2);
 
-    DATA.teapot = createTeapot(0.0, 0.14, -0.7, 0.2);
+    DATA.teapot = createTeapot(0.0, 0.2, -0.7, 0.2);
     DATA.sphere = createSphere(0.8, 0.2, 0.0, 0.2, 30, 30);
     DATA.torus = createTorus(-0.2, 0.1, 0.5, 0.06, 0.2, 30, 30);
     DATA.floor = createBlock(0, -0.05, 0, 1, 0.05, 1);

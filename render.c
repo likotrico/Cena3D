@@ -77,7 +77,7 @@ void renderTeapot(Teapot *teapot, float angle, float eixo_x, float eixo_y, float
         glutWireTeapot(teapot->size);
     else
         glutSolidTeapot(teapot->size);
-
+    
     if (HITBOX_ON)
         renderTeapotHitbox(teapot);
 

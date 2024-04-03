@@ -7,7 +7,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-int n_prints = 0;
+int n_prt = 0;
 
 void printScreen(const char *filename)
 {
@@ -30,8 +30,8 @@ void printScreen(const char *filename)
         }
 
     char f[50];
-    sprintf(f, "%s-%d.png", filename, n_prints);
-    n_prints++;
+    sprintf(f, "%s-%d.png", filename, n_prt);
+    n_prt++;
 
     // Escreve no arquivo usando a biblioteca stb do usuário nothings no GitHub
     stbi_write_png(f, 640, 640, 3, pixels, 640 * 3);

@@ -1,6 +1,8 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
 
+#define SPEED 0.05
+
 int verifyCollision(int, int, int, int);
 
 int isFalling();

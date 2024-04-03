@@ -140,6 +140,7 @@ void renderSphere(Sphere *sphere)
     float ambient_sphere[4] = {0.1f, 0.1f, 0.1f, 1.0f};
     float ns_sphere = 65.0f;
 
+
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, kd_sphere);
     glMaterialfv(GL_FRONT, GL_SPECULAR, ks_sphere);
     // glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_sphere);
@@ -283,6 +284,7 @@ void renderWireBlock(Block *block)
 
     glEnd();
 }
+
 
 void renderSolidBlock(Block *block)
 {

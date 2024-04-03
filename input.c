@@ -7,9 +7,11 @@
 #include "input.h"
 #include "object.h"
 #include "physics.h"
+#include "screenshot.h"
 
 int HITBOX_ON = 0;
 int WIRE_ON = 0;
+int ZOOM = 0;
 
 void keyPressed(unsigned char key, int x, int y)
 {
@@ -33,6 +35,24 @@ void keyPressed(unsigned char key, int x, int y)
     case '3':
         printf("Log: Torus selected.\n");
         SELECTED_TYPE = torus_type;
+        break;
+
+    case '-':
+        if (ZOOM < MAX_Z)
+            ZOOM++;
+            glutPostRedisplay();
+        break;
+
+    case '=':
+        if (ZOOM > MIN_Z)
+            ZOOM--;
+            glutPostRedisplay();
+        break;
+
+    case '+':
+        if (ZOOM > MIN_Z)
+            ZOOM--;
+            glutPostRedisplay();
         break;
 
     default:
@@ -96,6 +116,9 @@ void skeyPressed(int key, int x, int y)
         initData();
         glutPostRedisplay();
     }
+
+    if (key == GLUT_KEY_F12)
+        printScreen("tiro-de-tela");
 }
 
 void moveObject(double x, double y, double z)
